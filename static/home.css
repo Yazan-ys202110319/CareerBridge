@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+}
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+}
+
+.title {
+    font-size: 25px;
+    font-family: Unna, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    width: auto;
+    height: 120px;
+    background-color: rgb(42, 42, 42);
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+}
+
+.about {
+    font-family: Gupter, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 32px;
+}
+
+.about-section {
+    background-color: rgb(42, 42, 42);
+    display: flex;
+    flex-direction: column;
+    margin: 18px 13px;
+    border-radius: 7px;
+    color: #FFF;
+}
+
+.about-text {
+    font-family: Inter, sans-serif;
+    padding-left: 15px;
+    font-size: 20px;
+}
+
+.jobs {
+    font-family: Gupter, sans-serif;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.jobs-section {
+    background-color: rgb(42, 42, 42);
+    display: flex;
+    flex-direction: column;
+    border-radius: 7px;
+    margin: 18px 13px;
+    color: white;
+}
+
+.contact-us {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    width: 120px;
+    height: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #007AFF ;
+    border: none;
+    color: #FFF;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.copy-right {
+    color: white;
+    font-family: Inter, sans-serif;
+}

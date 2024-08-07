@@ -1,0 +1,42 @@
+.title {
+    color: #FFF;
+    font-size: 30px;
+    padding-left: 40px;
+    margin-bottom: 6px;
+}
+
+.location {
+    padding-left: 40px;
+    font-size: 20px;
+}
+
+.salary {
+    padding-left: 40px;
+    font-size: 20px;
+}
+
+.line {
+    margin-top: 35px;
+}
+
+.job-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.applay-btn {
+    padding: 12px;
+    margin-right: 50px;
+    width: 100px;
+    border-radius: 10px;
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.applay-btn:hover {
+    background-color: yellow;
+}

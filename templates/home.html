@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+        <link href="static/home.css" rel="stylesheet">
+
+        <link href="static/jobs.css" rel="stylesheet">
+
+        <title>CareerBridge</title>
+    </head>
+    <body>
+
+        <div class="home-page">
+
+            <nav class="navbar">
+                <h1 class="title">CareerBridge</h1>
+            </nav>
+
+            <div class="about-section">
+                <h2 class="about">About CareerBridge</h2>
+                <p class="about-text">
+                    Welcome to CareerBridge, your number one source for job opportunities. We're dedicated to providing you the very best platform to connect job seekers with employers, with an emphasis on ease of use, reliability, and efficiency. At CareerBridge, our mission is to bridge the gap between talent and opportunity. We understand the challenges of job searching and recruitment, and we strive to create a seamless experience for both job seekers and employers. Our goal is to empower individuals to find their dream jobs and help companies discover the perfect candidates for their needs.
+                </p>
+
+            </div>
+
+            <div class="jobs-section">
+                <h2 class="jobs">Open Positions</h2>
+                <div>
+                    {% for job in jobs %}
+                        {% include 'job_item.html' %}
+                        <hr class="line">
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="contact-us">
+                <button class="btn">Contact Us</button>
+                <p class="copy-right">Made with <span>&#9829;</span> by Yazan, Copyright 2024</p>
+            </div>
+
+        </div>
+
+    </body>
+</html>
