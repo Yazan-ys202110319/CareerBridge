@@ -16,7 +16,7 @@ body {
 .navbar {
     display: flex;
     width: auto;
-    height: 180px;
+    height: 120px;
     background-color: rgb(42, 42, 42);
     justify-content: center;
     align-items: center;
