@@ -6,7 +6,7 @@ load_dotenv()  # Load the environment variables from the .env file
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-engine = create_engine(DATABASE_URL)
+engine = create_engine(DATABASE_URL) # Load the database to the engine.
 
 def load_jobs_form_db():
     with engine.connect() as conn:
