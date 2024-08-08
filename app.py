@@ -10,7 +10,8 @@ def home():
 
 @app.route("/api/jobs")
 def list_jobs():
-    return jsonify(JOBS)
+    jobs = load_jobs_form_db()
+    return jsonify(jobs)
 
 if __name__ == '__main__':
     app.run(debug = True)
