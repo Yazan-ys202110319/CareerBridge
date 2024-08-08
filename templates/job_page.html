@@ -22,11 +22,19 @@
             <h3>Location</h3>
             <p>{{job.location}}</p>
             <h3>Salary</h3>
-            <p>{{job.currency}}{{job.salary}}</p>
+            <p>{{job.currency}} {{job.salary}}</p>
             <h3>Responsibilities</h3>
-            <p>{{job.responsibilities}}</p>
+                <ul>
+                    {% for line in job.responsibilities.split("\n") %}
+                        <li>{{line}}</li>
+                    {% endfor %}
+                </ul>
             <h3>Requirements</h3>
-            <p>{{job.requirements}}</p>
+            <ol>
+                {% for line in job.requirements.split("\n") %}
+                    <li>{{line}}</li>
+                {% endfor %}
+            </ol>
         </div>
     </body>
 </html>
