@@ -1,4 +1,7 @@
 Flask
+<<<<<<< HEAD
 gunicorn
 sqlalchemy
 psycopg2
+=======
+>>>>>>> dbd4dd5e157305ef5b109b1140d6e12e68f2936b
