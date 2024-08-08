@@ -6,7 +6,7 @@ load_dotenv()  # Load the environment variables from the .env file
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-engine = create_engine("postgresql+psycopg2://postgres.mhumhvlaihdfgegupqeu:yazanYAZAN2003@aws-0-ap-south-1.pooler.supabase.com:6543/postgres")
+engine = create_engine(DATABASE_URL)
 
 def load_jobs_form_db():
     with engine.connect() as conn:
