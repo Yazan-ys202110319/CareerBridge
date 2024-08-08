@@ -4,4 +4,9 @@ engine = create_engine("postgresql+psycopg2://postgres.mhumhvlaihdfgegupqeu:yaza
 
 with engine.connect() as conn:
     result = conn.execute(text("select * from jobs"))
-    print(result.all())
+
+    result_dicts = []
+    for row in result.all(): # result_all() is a list
+        result_dicts.append(row._asdict())
+
+    print(result_dicts)
