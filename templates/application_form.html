@@ -1,1 +1,37 @@
-<div>To add the form here</div>
+<h4>Application Form</h4>
+<form action="/job/{{job['id']}}/apply" method="post">
+
+    <div>
+        <label>Full name</label>
+        <br/>
+        <input type = "text" name = 'full_name' placeholder="Enter your full name">
+    </div>
+
+    <div>
+        <label>Email</label><br/>
+        <input type = "text" name = 'email' placeholder="Sample@example.com">
+    </div>
+
+    <div>
+        <label>LinkedIn URL</label><br/>
+        <input type = "text" name = 'linkedin_url' placeholder="https://www.linkedin.com/in/example">
+    </div>
+
+    <div>
+        <label>Education</label><br/>
+        <textarea name="education"></textarea>
+    </div>
+
+    <div>
+        <label>Work Experience</label><br/>
+        <textarea name="work_experience"></textarea>
+    </div>
+
+    <div>
+        <label>Resume URL</label><br/>
+        <input type = "text" name = 'resume'>
+    </div>
+
+    <input type="submit">
+
+</form>
