@@ -33,26 +33,16 @@ def add_application_to_db(job_id, data):
     with engine.connect() as conn:
         query = text("""INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience, resume) VALUES (1, 'Test Name', 'test@example.com', 'http://linkedin.com/test', 'Test Education', 'Test Experience', 'N/A')""")
     # :job_id, :full_name, :email, :linkedin_url, :education, :work_experience, :resume)
-        result = conn.execute(query, {
-            'job_id': job_id,
-            'full_name': data['full_name'],
-            'email': data['email'],
-            'linkedin_url': data['linkedin_url'],
-            'education': data['education'],
-            'work_experience': data['work_experience'],
-            'resume': data['resume']
-        })
+        conn.execute(query,  job_id = job_id, full_name = data['full_name'],
+                      email = data['email'],
+                      linkedin_url = data['linkedin_url'],
+                      education = data['education'],
+                      work_experience = data['work_experience'],
+                      resume = data['resume'])
         
-        print(f"Inserted {result.rowcount} row(s) into the database.")
+        # print(f"Inserted {result.rowcount} row(s) into the database.")
 
         
-        # job_id = job_id, full_name = data['full_name'],
-        #              email = data['email'],
-        #              linkedin_url = data['linkedin_url'],
-        #              education = data['education'],
-        #              work_experience = data['work_experience'],
-        #              resume = data['resume']
-
 
         # 'job_id' : job_id, 'full_name' : data['full_name'],
         #              'email' : data['email'],
