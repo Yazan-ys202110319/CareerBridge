@@ -26,19 +26,41 @@ def load_job_from_db(id):
         if len(rows) == 0:
             return None
         else:
-            return rows[0]._asdict()
+           return rows[0]._asdict()
         
-def add_application_to_db(job_id, data):
 
+def add_application_to_db(job_id, data):
     with engine.connect() as conn:
-        query = text("""INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience, resume) VALUES (1, 'Test Name', 'test@example.com', 'http://linkedin.com/test', 'Test Education', 'Test Experience', 'N/A')""")
-    # :job_id, :full_name, :email, :linkedin_url, :education, :work_experience, :resume)
-        conn.execute(query,  job_id = job_id, full_name = data['full_name'],
-                      email = data['email'],
-                      linkedin_url = data['linkedin_url'],
-                      education = data['education'],
-                      work_experience = data['work_experience'],
-                      resume = data['resume'])
+        query = text(
+            f"INSERT INTO applications(job_id, full_name, email, linkedin_url, education, work_experience, resume) VALUES (:job_id, :full_name, :email, :linkedin_url, :education, :work_experience, :resume)"
+        )
+
+        conn.execute(
+            query,
+            {
+                "job_id": job_id,
+                "full_name": data["full_name"],
+                "email": data["email"],
+                "linkedin_url": data["linkedin_url"],
+                "education": data["education"],
+                "work_experience": data["work_experience"],
+                "resume": data["resume"],
+            },
+        )
+        conn.commit()
+        
+# def add_application_to_db(job_id, data):
+
+#     with engine.connect() as conn:
+#         query = text("INSERT INTO applications (job_id, full_name, email, linkedin_url, education, work_experience, resume) VALUES (:job_id, :full_name, :email, :linkedin_url, :education, :work_experience, :resume)")
+#         conn.execute(query,  job_id = data['job_id'], full_name = data['full_name'],
+#                       email = data['email'],
+#                       linkedin_url = data['linkedin_url'],
+#                       education = data['education'],
+#                       work_experience = data['work_experience'],
+#                       resume = data['resume'])
+        
+#         conn.commit()
         
         # print(f"Inserted {result.rowcount} row(s) into the database.")
 
