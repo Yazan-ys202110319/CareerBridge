@@ -38,8 +38,14 @@ def apply_to_job(id): # id is the job id
 
     return render_template('application_submitted.html', application = data, job = job)
 
+
+
 MAILJET_API_KEY = os.getenv('MAILJET_API_KEY')
 MAILJET_SECRET_KEY = os.getenv('MAILJET_SECRET_KEY')
+# create an instance of the mailjet client to interact with mailjet api
+mailjet = Client(auth=(MAILJET_API_KEY, MAILJET_SECRET_KEY), version='v3.1')
+
+
 
 def send_confirmation_email(user_email, user_name, job_title):
     data = { # data is a dictionary
@@ -76,8 +82,6 @@ def send_confirmation_email(user_email, user_name, job_title):
         print(f"Failed to send email: {result.status_code}")
 
 
-
-mailjet = Client(auth=(MAILJET_API_KEY, MAILJET_SECRET_KEY), version='v3.1')
 
 if __name__ == '__main__':
     app.run(debug = True)
