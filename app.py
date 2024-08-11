@@ -6,6 +6,7 @@ from mailjet_rest import Client
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def home():
     jobs = load_jobs_from_db()
