@@ -3,4 +3,4 @@ gunicorn
 sqlalchemy
 psycopg2
 python-dotenv
-mailjet-rest
+mailjet_rest
