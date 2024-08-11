@@ -1,7 +1,8 @@
 from flask import Flask, render_template, jsonify, request
 from database import load_jobs_from_db, load_job_from_db, add_application_to_db
 import os
-from mailjet_rest import client
+from mailjet_rest import Client
+
 
 app = Flask(__name__)
 
@@ -32,7 +33,8 @@ def apply_to_job(id): # id is the job id
     job = load_job_from_db(id)
     add_application_to_db(id, data)
 
-    send_confirmation_email(data['email'], data['full_name'], job.title) # Send confirmation email to the candidate
+
+    send_confirmation_email(data['email'], data['full_name'], job['title']) # Send confirmation email to the candidate
 
     return render_template('application_submitted.html', application = data, job = job)
 
@@ -40,36 +42,42 @@ MAILJET_API_KEY = os.getenv('MAILJET_API_KEY')
 MAILJET_SECRET_KEY = os.getenv('MAILJET_SECRET_KEY')
 
 def send_confirmation_email(user_email, user_name, job_title):
-    data = {
-        'Messages' : [
+    data = { # data is a dictionary
+        'Messages' : [ # Messages here is a list containe 1 item.
             {
+
+                # First portion of the dictionary 
                 "From": {
                     "Email": "yazan77712366@gmail.com",
                     "Name": "CareerBridge"
                 },
-                "To": [
+
+                 # Second portion of the dictionary 
+                "To": [ # Mailjet API expect a list in the To filed
                     {
                         "Email": user_email,
                         "Name": user_name
                     }
                 ],
 
+                # Third portion of the dictionary 
                 "Subject": f"Application Received for {job_title}",
                 "TextPart": f"Dear {user_name},\n\nThank you for applying to the {job_title} position. We have received your application and will review it shortly.\n\nBest regards,\nCareerBridge",
-                "HTMLPart": f"<h3>Dear {user_email},</h3><p>Thank you for applying to the <strong>{job_title}</strong> position. We have received your application and will review it shortly.</p><p>Best regards,<br>CareerBridge</p>"   
+                "HTMLPart": f"<h3>Dear {user_name},</h3><p>Thank you for applying to the <strong>{job_title}</strong> position. We have received your application and will review it shortly.</p><p>Best regards,<br>CareerBridge</p>"   
                 
             }
         ]
     }
 
     result = mailjet.send.create(data = data)
-    if result.status_code == 200:
+    if result.status_code == 200: # 200 indicates the request was successful.
         print("Email sent successfully.")
     else:
         print(f"Failed to send email: {result.status_code}")
 
 
-mailjet = client(auth=(MAILJET_API_KEY, MAILJET_SECRET_KEY), version='v3.1')
+
+mailjet = Client(auth=(MAILJET_API_KEY, MAILJET_SECRET_KEY), version='v3.1')
 
 if __name__ == '__main__':
     app.run(debug = True)
