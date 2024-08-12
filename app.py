@@ -1,16 +1,53 @@
-from flask import Flask, render_template, jsonify, request
-from database import load_jobs_from_db, load_job_from_db, add_application_to_db
+from flask import Flask, render_template, jsonify, request, url_for, session, redirect, flash
+from database import load_jobs_from_db, load_job_from_db, add_application_to_db, add_user_to_db
 import os
 from mailjet_rest import Client
+# from flask_mysqldb import MySQL
+from dotenv import load_dotenv
+from sqlalchemy import create_engine, text
 
+load_dotenv()
 
 app = Flask(__name__)
+app.secret_key = os.getenv('app_secret_key')
 
 
+DATABASE_URL = os.getenv("DATABASE_URL")
+engine = create_engine(DATABASE_URL)
+
+
+# Landing page 
+@app.route('/')
+def landing():
+    return render_template('landing_page.html')
+
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+
+@app.route('/signup', methods = ['POST', 'GET'])
+def signup():
+    if request.method == 'POST':
+        user_data = request.form
+
+        user_name = request.form.get('user_name')
+        email = request.form.get('email')
+        
+        
+        
+        add_user_to_db(user_data)
+        return render_template('signup.html')
+    else: # here for the get method
+        return render_template('signup.html')
+
+
+# home page
 @app.route('/')
 def home():
     jobs = load_jobs_from_db()
-    return render_template('home.html', jobs = jobs)
+    return render_template('home.html', jobs = jobs) 
 
 
 @app.route("/api/jobs")
@@ -28,7 +65,7 @@ def show_job(id):
 
 
  
-@app.route('/job/<id>/apply', methods = ['post'])
+@app.route('/job/<id>/apply', methods = ['POST'])
 def apply_to_job(id): # id is the job id
     data = request.form # get the user information from the job_page, like the name, email...
     job = load_job_from_db(id)

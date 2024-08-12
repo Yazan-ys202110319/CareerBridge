@@ -17,6 +17,14 @@ def load_jobs_from_db():
             jobs.append(row._asdict())
         return jobs
     
+def load_user_from_db():
+    with engine.connect() as conn:
+        result = conn.execute(text('SELECT * FROM users'))
+        jobs = []
+        for row in result.all():
+            jobs.append(row._asdict())
+        return jobs
+
 def load_job_from_db(id):
     with engine.connect() as conn:
         result = conn.execute(
@@ -28,6 +36,27 @@ def load_job_from_db(id):
         else:
            return rows[0]._asdict()
         
+
+def add_user_to_db(user_data):
+    user_type = 'user'
+    if user_data['email'] == "yazan77712366@gmail.com":
+        user_type = 'admin'
+    with engine.connect() as conn:
+        query = text(f"INSERT INTO users(user_name, email, user_type ,password1, password2) VALUES (:user_name, :email, :user_type ,:password1, :password2)")
+
+        conn.execute(
+            query, 
+            {
+                "user_name" : user_data['user_name'],
+                "email": user_data['email'],
+                "user_type": user_type,
+                "password1": user_data['password1'],
+                "password2": user_data['password2'],
+            },
+        )
+
+        conn.commit()
+
 
 def add_application_to_db(job_id, data): # data here is the application, and job means which job type the user want to apply.
     with engine.connect() as conn:
