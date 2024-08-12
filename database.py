@@ -35,7 +35,32 @@ def load_job_from_db(id):
             return None
         else:
            return rows[0]._asdict()
-        
+
+def load_user_from_db(user_email):
+      with engine.connect() as conn:
+
+            query = text(f'SELECT email, password1 FROM users where email = :user_email')
+
+            result = conn.execute(
+                query, 
+                {
+                    'user_email' : user_email,
+                }
+            )
+
+            temp = result.fetchall()
+
+            if len(temp) == 0:
+                return -1
+            else:
+                return temp
+
+        #   rows = result.all()
+        #   if len(rows) == 0:
+        #       return -1
+        #   else:
+        #       return rows[0]._asdict()
+
 
 def add_user_to_db(user_data):
     user_type = 'user'
@@ -56,6 +81,7 @@ def add_user_to_db(user_data):
         )
 
         conn.commit()
+
 
 
 def add_application_to_db(job_id, data): # data here is the application, and job means which job type the user want to apply.

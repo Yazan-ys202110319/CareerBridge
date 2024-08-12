@@ -1,10 +1,11 @@
 from flask import Flask, render_template, jsonify, request, url_for, session, redirect, flash
-from database import load_jobs_from_db, load_job_from_db, add_application_to_db, add_user_to_db
+from database import load_jobs_from_db, load_job_from_db, add_application_to_db, add_user_to_db, load_user_from_db
 import os
 from mailjet_rest import Client
-# from flask_mysqldb import MySQL
 from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 load_dotenv()
 
@@ -22,8 +23,29 @@ def landing():
     return render_template('landing_page.html')
 
 
-@app.route('/login')
+@app.route('/login', methods = ['POST', 'GET'])
 def login():
+    if request.method == "POST":
+
+        user_email = request.form.get('email')
+        user_password = request.form.get('password1')
+         
+        getInfoFromDb = load_user_from_db(user_email)
+
+        # if the value of x is -1 that indecate there is no user with this email or password.
+        if getInfoFromDb != -1:
+            my_tuple = getInfoFromDb[0]  # Access the first (and only) tuple in the list.
+
+            # my_tuple[0] is the stored email.
+            stored_hashed_password = my_tuple[1]
+
+            if check_password_hash(stored_hashed_password, user_password):
+                print(True)
+            else:
+                print(False)
+        else:
+            print('Worng informations!')
+
     return render_template('login.html')
 
 
@@ -34,17 +56,36 @@ def signup():
 
         user_name = request.form.get('user_name')
         email = request.form.get('email')
-        
-        
-        
-        add_user_to_db(user_data)
-        return render_template('signup.html')
+        password1 = request.form.get('password1')
+        password2 = request.form.get('password2')
+
+        if len(user_name) < 2:
+            flash("Your name must be grater than 1 characters.", category = 'error')
+        elif len(email) < 4:
+            flash("Email must be grater than 3 characters.", category = 'error')
+        elif len(password1) < 7:
+            flash("Passwords must be at least 7 characters", category = 'error')
+        elif password1 != password2:
+            flash("Passwords don't match.", category = 'error')
+        else:
+            hashed_password = generate_password_hash(user_data['password1'], method = 'pbkdf2:sha256')
+            user_data = {
+                'user_name': user_name,
+                'email': email,
+                'password1': hashed_password,
+                'password2': hashed_password
+            }
+            flash("Account created!", category = 'success')
+            add_user_to_db(user_data)
+
+        return redirect(url_for('home'))
+    
     else: # here for the get method
         return render_template('signup.html')
 
 
 # home page
-@app.route('/')
+@app.route('/home')
 def home():
     jobs = load_jobs_from_db()
     return render_template('home.html', jobs = jobs) 
