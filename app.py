@@ -3,8 +3,9 @@ from database import load_jobs_from_db, load_job_from_db, add_application_to_db,
 import os
 from mailjet_rest import Client
 from dotenv import load_dotenv
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_user, login_required, logout_user, current_user
 
 
 load_dotenv()
@@ -30,21 +31,30 @@ def login():
         user_email = request.form.get('email')
         user_password = request.form.get('password1')
          
-        getInfoFromDb = load_user_from_db(user_email)
-
-        # if the value of x is -1 that indecate there is no user with this email or password.
-        if getInfoFromDb != -1:
-            my_tuple = getInfoFromDb[0]  # Access the first (and only) tuple in the list.
-
-            # my_tuple[0] is the stored email.
-            stored_hashed_password = my_tuple[1]
-
-            if check_password_hash(stored_hashed_password, user_password):
-                print(True)
-            else:
-                print(False)
+        if user_email == 'yazan77712366@gmail.com':
+            return redirect(url_for('add_job'))
         else:
-            print('Worng informations!')
+
+            getInfoFromDb = load_user_from_db(user_email)
+
+            # if the value of getInfoFromDb is -1 that indecate there is no user with this email or password.
+            if getInfoFromDb != -1:
+                my_tuple = getInfoFromDb[0]  # Access the first (and only) tuple in the list.
+
+                # my_tuple[0] is the stored email.
+                stored_hashed_password = my_tuple[1]
+
+                if check_password_hash(stored_hashed_password, user_password):
+                    flash("Logged in successfully!", category = 'success')
+                    login_user()
+
+                    return redirect(url_for('home'))
+                else:
+                    # flash a message about wrong email or password
+                    return render_template('login.html')
+            else:
+                # flash a message about no user with this information
+                return render_template('login.html')
 
     return render_template('login.html')
 
@@ -60,11 +70,11 @@ def signup():
         password2 = request.form.get('password2')
 
         if len(user_name) < 2:
-            flash("Your name must be grater than 1 characters.", category = 'error')
+            flash("Your name must be grater than 1 character.", category = 'error')
         elif len(email) < 4:
             flash("Email must be grater than 3 characters.", category = 'error')
         elif len(password1) < 7:
-            flash("Passwords must be at least 7 characters", category = 'error')
+            flash("Passwords must be at least 7 characters.", category = 'error')
         elif password1 != password2:
             flash("Passwords don't match.", category = 'error')
         else:
@@ -75,13 +85,21 @@ def signup():
                 'password1': hashed_password,
                 'password2': hashed_password
             }
-            flash("Account created!", category = 'success')
-            add_user_to_db(user_data)
 
-        return redirect(url_for('home'))
+            flash("Account created successfully!", category = 'success')
+            add_user_to_db(user_data)
+            return redirect(url_for('home'))
+
+
+        return redirect(url_for('signup'))
     
     else: # here for the get method
         return render_template('signup.html')
+
+
+@app.route('/add_job')
+def add_job():
+    return render_template('add_job.html')
 
 
 # home page

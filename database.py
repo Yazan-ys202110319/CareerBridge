@@ -17,6 +17,7 @@ def load_jobs_from_db():
             jobs.append(row._asdict())
         return jobs
     
+
 def load_user_from_db():
     with engine.connect() as conn:
         result = conn.execute(text('SELECT * FROM users'))
@@ -24,6 +25,7 @@ def load_user_from_db():
         for row in result.all():
             jobs.append(row._asdict())
         return jobs
+
 
 def load_job_from_db(id):
     with engine.connect() as conn:
@@ -35,6 +37,7 @@ def load_job_from_db(id):
             return None
         else:
            return rows[0]._asdict()
+
 
 def load_user_from_db(user_email):
       with engine.connect() as conn:
@@ -50,16 +53,11 @@ def load_user_from_db(user_email):
 
             temp = result.fetchall()
 
+
             if len(temp) == 0:
                 return -1
             else:
                 return temp
-
-        #   rows = result.all()
-        #   if len(rows) == 0:
-        #       return -1
-        #   else:
-        #       return rows[0]._asdict()
 
 
 def add_user_to_db(user_data):

@@ -7,6 +7,32 @@
     </head>
     <body>
         This is the signup page
+        <br/>
+        <br/>
+        
+        <!-- messages here is variable and get_flashed_messages is a method from jinja -->
+        {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %} <!--if you have messages -->
+                {% for category, message in messages %}
+                    {% if category == 'error' %}
+                        <div class="wrong-alert"> <!-- if the alert is wrong -->
+                            {{message}} <!-- display the message -->
+                            <button class="wrong-btn">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                    {% else %}
+                        <div class="wrong-alert"> <!-- if the alert is correct -->
+                            {{message}}
+                            <button class="wrong-btn">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
         <form method="post" action="/signup">
 
             <div>
