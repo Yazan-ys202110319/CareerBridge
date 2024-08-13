@@ -99,8 +99,8 @@ def signup():
     else: # here for the get method
         return render_template('signup.html')
 
-@app.route('/logout')
-def logout():
+# @app.route('/logout')
+# def logout():
     
 
 
