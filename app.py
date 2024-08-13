@@ -26,10 +26,6 @@ def landing_page():
 
 @app.route('/login', methods = ['POST', 'GET'])
 def login():
-    
-    # Check if the user is already logged in redirect him immediately and no need to log in again. and do not need unnecessary processing.
-    if 'user_email' in session:
-        return redirect(url_for('home'))
 
     if request.method == "POST":
         
@@ -55,6 +51,13 @@ def login():
                     flash("Logged in successfully!", category = 'success')
     
                     return redirect(url_for('home'))
+                
+                if 'user_email' in session:
+                    return redirect(url_for('home'))
+                
+                # Check if the user is already logged in redirect him immediately and no need to log in again. and do not need unnecessary processing.
+                elif 'user_email' not in session:
+                    return render_template('login.html')
                 
                 else:
                     # flash a message about wrong email or password
