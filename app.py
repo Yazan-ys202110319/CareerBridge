@@ -27,7 +27,7 @@ def landing():
 @app.route('/login', methods = ['POST', 'GET'])
 def login():
     if request.method == "POST":
-
+        user = request.form
         user_email = request.form.get('email')
         user_password = request.form.get('password1')
          
@@ -45,8 +45,9 @@ def login():
                 stored_hashed_password = my_tuple[1]
 
                 if check_password_hash(stored_hashed_password, user_password):
+                    session['user_email'] = user_email # identify the user by his email.
                     flash("Logged in successfully!", category = 'success')
-                    login_user()
+        
 
                     return redirect(url_for('home'))
                 else:
@@ -62,6 +63,7 @@ def login():
 @app.route('/signup', methods = ['POST', 'GET'])
 def signup():
     if request.method == 'POST':
+
         user_data = request.form
 
         user_name = request.form.get('user_name')
@@ -111,8 +113,10 @@ def home():
 
 @app.route("/api/jobs")
 def list_jobs():
-    jobs = load_jobs_from_db()
-    return jsonify(jobs)
+    if 'user' in session:
+        user = session['user'] # To get the user
+        jobs = load_jobs_from_db()
+        return jsonify(jobs)
 
 
 @app.route('/job/<id>')
