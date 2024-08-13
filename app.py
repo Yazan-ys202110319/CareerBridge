@@ -99,6 +99,10 @@ def signup():
     else: # here for the get method
         return render_template('signup.html')
 
+@app.route('/logout')
+def logout():
+    
+
 
 @app.route('/add_job')
 def add_job():
@@ -108,10 +112,15 @@ def add_job():
 # home page
 @app.route('/home')
 def home():
-    if 'user' in session:
-        user = session['user'] # To get the user
+    if 'user_email' in session:
+        # user is logged in
+        user_email = session['user_email'] # To get the user
         jobs = load_jobs_from_db()
         return render_template('home.html', jobs = jobs) 
+    else:
+        # User is not logged in
+        flash('Please log in to access this page.', category = 'error')
+        return redirect(url_for('login'))
 
 
 @app.route("/api/jobs")
