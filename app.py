@@ -20,14 +20,19 @@ engine = create_engine(DATABASE_URL)
 
 # Landing page 
 @app.route('/')
-def landing():
+def landing_page():
     return render_template('landing_page.html')
 
 
 @app.route('/login', methods = ['POST', 'GET'])
 def login():
+    
+    # Check if the user is already logged in redirect him immediately and no need to log in again. and do not need unnecessary processing.
+    if 'user_email' in session:
+        return redirect(url_for('home'))
+
     if request.method == "POST":
-        user = request.form
+        
         user_email = request.form.get('email')
         user_password = request.form.get('password1')
          
@@ -45,17 +50,17 @@ def login():
                 stored_hashed_password = my_tuple[1]
 
                 if check_password_hash(stored_hashed_password, user_password):
-                    session['user_email'] = user_email # identify the user by his email.
+                    session['user_email'] = user_email # identify the user by his email because it is unique.
                     # session is a dictionary and 'user_email' is key and user_email is a value.
                     flash("Logged in successfully!", category = 'success')
-        
-
+    
                     return redirect(url_for('home'))
+                
                 else:
                     # flash a message about wrong email or password
                     return render_template('login.html')
             else:
-                # flash a message about no user with this information
+                # flash a message about no user with this email
                 return render_template('login.html')
 
     return render_template('login.html')
@@ -99,9 +104,12 @@ def signup():
     else: # here for the get method
         return render_template('signup.html')
 
-# @app.route('/logout')
-# def logout():
-    
+@app.route('/logout')
+def logout():
+    session.pop('user_email', None) # To delete the user information from the session.
+    flash('You have been logged out.', category = 'correct')
+    return redirect(url_for('landing_page'))
+     
 
 
 @app.route('/add_job')
@@ -112,7 +120,7 @@ def add_job():
 # home page
 @app.route('/home')
 def home():
-    if 'user_email' in session:
+    if 'user_email' in session: # if user still in session.
         # user is logged in
         user_email = session['user_email'] # To get the user
         jobs = load_jobs_from_db()
