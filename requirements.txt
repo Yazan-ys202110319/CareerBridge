@@ -5,3 +5,4 @@ psycopg2
 python-dotenv
 mailjet_rest
 werkzeug
+flask_login

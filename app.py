@@ -46,6 +46,7 @@ def login():
 
                 if check_password_hash(stored_hashed_password, user_password):
                     session['user_email'] = user_email # identify the user by his email.
+                    # session is a dictionary and 'user_email' is key and user_email is a value.
                     flash("Logged in successfully!", category = 'success')
         
 
@@ -107,14 +108,14 @@ def add_job():
 # home page
 @app.route('/home')
 def home():
-    jobs = load_jobs_from_db()
-    return render_template('home.html', jobs = jobs) 
+    if 'user' in session:
+        user = session['user'] # To get the user
+        jobs = load_jobs_from_db()
+        return render_template('home.html', jobs = jobs) 
 
 
 @app.route("/api/jobs")
 def list_jobs():
-    if 'user' in session:
-        user = session['user'] # To get the user
         jobs = load_jobs_from_db()
         return jsonify(jobs)
 
