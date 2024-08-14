@@ -40,9 +40,10 @@ def load_job_from_db(id):
 
 
 def load_user_from_db(user_email):
+
       with engine.connect() as conn:
 
-            query = text(f'SELECT email, password1 FROM users where email = :user_email')
+            query = text(f'SELECT email, password1, user_type FROM users where email = :user_email')
 
             result = conn.execute(
                 query, 
@@ -59,6 +60,24 @@ def load_user_from_db(user_email):
             else:
                 return temp
 
+
+def load_admin_from_db(email):
+
+    with engine.connect() as conn:
+        
+        query = text('SELECT email, user_type FROM users WHERE email = :email')
+        result = conn.execute(query, {
+            'user_email' : email
+        })
+
+        # Fetch all matching rows
+        user_info_list = result.fetchall()
+
+        if not user_info_list:
+            return -1 # no user found
+        else:
+            return user_info_list
+        
 
 def add_user_to_db(user_data):
     user_type = 'user'

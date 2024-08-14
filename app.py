@@ -1,17 +1,19 @@
 from flask import Flask, render_template, jsonify, request, url_for, session, redirect, flash
-from database import load_jobs_from_db, load_job_from_db, add_application_to_db, add_user_to_db, load_user_from_db
+from database import load_jobs_from_db, load_job_from_db, add_application_to_db, add_user_to_db, load_user_from_db, load_admin_from_db
 import os
 from mailjet_rest import Client
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user, current_user
+from datetime import timedelta
 
 
 load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv('app_secret_key')
+# app.permanent_session_lifetime = timedelta(minutes = 5)
 
 
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -46,6 +48,7 @@ def login():
                 stored_hashed_password = my_tuple[1]
 
                 if check_password_hash(stored_hashed_password, user_password):
+                    # session.permanent = True
                     session['user_email'] = user_email # identify the user by his email because it is unique.
                     # session is a dictionary and 'user_email' is key and user_email is a value.
                     flash("Logged in successfully!", category = 'success')
@@ -115,9 +118,34 @@ def logout():
      
 
 
-@app.route('/add_job')
+@app.route('/add_job', methods = ['GET'])
 def add_job():
-    return render_template('add_job.html')
+    
+    if 'user_email' in session:
+        user_email = session['user_email']
+
+        user_info_list = load_admin_from_db(user_email)
+
+        if user_info_list != -1:
+            for user_info in user_info_list: # for each user in users list
+                user_type = user_info[2]
+                print(user_type)
+
+                if user_type == 'admin':
+                    return render_template('add_job.html')
+                
+            # If no admin user type is found
+            flash('Access denied. Admins only.', category='error')
+            return redirect(url_for('landing_page'))
+        else:
+            flash('No user with this email.', category='error')
+            return redirect(url_for('login'))
+            
+    else:
+        print('Please log in to access this page.')
+        flash('Please log in to access this page.', category='error')
+        return redirect(url_for('login'))
+
 
 
 # home page
