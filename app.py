@@ -34,42 +34,39 @@ def login():
         user_email = request.form.get('email')
         user_password = request.form.get('password1')
          
-        if user_email == 'yazan77712366@gmail.com':
-            return redirect(url_for('add_job'))
-        else:
 
-            getInfoFromDb = load_user_from_db(user_email)
+        getInfoFromDb = load_user_from_db(user_email)
 
-            # if the value of getInfoFromDb is -1 that indecate there is no user with this email or password.
-            if getInfoFromDb != -1:
-                my_tuple = getInfoFromDb[0]  # Access the first (and only) tuple in the list.
+        # if the value of getInfoFromDb is -1 that indecate there is no user with this email or password.
+        if getInfoFromDb != -1:
+            my_tuple = getInfoFromDb[0]  # Access the first (and only) tuple in the list.
 
-                # my_tuple[0] is the stored email.
-                stored_hashed_password = my_tuple[1]
-                user_type = my_tuple[2]
+            # my_tuple[0] is the stored email.
+            stored_hashed_password = my_tuple[1]
+            user_type = my_tuple[2]
 
-                if check_password_hash(stored_hashed_password, user_password):
-                    session.permanent = True
-                    session['user_email'] = user_email # identify and store the user by his email because it is unique.
-                    # session is a dictionary and 'user_email' is key and user_email is a value.
-                    session['user_type'] = user_type # Store the user type.
-                    flash("Logged in successfully!", category = 'success')
-    
-                    return redirect(url_for('home'))
-                
-                if 'user_email' in session:
-                    return redirect(url_for('home'))
-                
-                # Check if the user is already logged in redirect him immediately and no need to log in again. and do not need unnecessary processing.
-                elif 'user_email' not in session:
-                    return render_template('login.html')
-                
-                else:
-                    # flash a message about wrong email or password
-                    return render_template('login.html')
-            else:
-                # flash a message about no user with this email
+            if check_password_hash(stored_hashed_password, user_password):
+                session.permanent = True
+                session['user_email'] = user_email # identify and store the user by his email because it is unique.
+                # session is a dictionary and 'user_email' is key and user_email is a value.
+                session['user_type'] = user_type # Store the user type.
+                flash("Logged in successfully!", category = 'success')
+
+                return redirect(url_for('home'))
+            
+            if 'user_email' in session:
+                return redirect(url_for('home'))
+            
+            # Check if the user is already logged in redirect him immediately and no need to log in again. and do not need unnecessary processing.
+            elif 'user_email' not in session:
                 return render_template('login.html')
+            
+            else:
+                # flash a message about wrong email or password
+                return render_template('login.html')
+        else:
+            # flash a message about no user with this email
+            return render_template('login.html')
 
     return render_template('login.html')
 
@@ -122,21 +119,30 @@ def logout():
 
 @app.route('/add_job', methods = ['GET'])
 def add_job():
-    
 
-    if 'user_email' in session and 'user_type' in session:
+    if 'user_email' in session:
         user_email = session['user_email']
-        user_type = session['user_type']
 
-        if user_type == 'admin':
-            return render_template('add_job.html')
-        else:
-            print('Access denied. Admins only.')
+        # Load all user info with the same email
+        user_info_list = load_user_from_db(user_email)
+
+        if user_info_list != 1:
+            for user_info in user_info_list:
+                user_type = user_info[2]
+                if user_type == 'admin':
+                    print('Admin user found. Access granted.')
+                    return render_template('add_job.html')
+                
+            # No admin found after iterating through all users
+            flash('Access denied. Admins only.', category = 'error')
             return redirect(url_for('home'))
+        else:
+            flash('No user with this email.', category = 'error')
+            return redirect(url_for('login'))
             
     else:
         print('Please log in to access this page.')
-        flash('Please log in to access this page.', category='error')
+        flash('Please log in to access this page.', category = 'error')
         return redirect(url_for('login'))
 
 
