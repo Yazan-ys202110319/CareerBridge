@@ -130,7 +130,6 @@ def add_job():
             for user_info in user_info_list:
                 user_type = user_info[2]
                 if user_type == 'admin':
-                    print('Admin user found. Access granted.')
                     return render_template('add_job.html')
                 
             # No admin found after iterating through all users
@@ -141,7 +140,6 @@ def add_job():
             return redirect(url_for('login'))
             
     else:
-        print('Please log in to access this page.')
         flash('Please log in to access this page.', category = 'error')
         return redirect(url_for('login'))
 
