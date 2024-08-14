@@ -65,7 +65,7 @@ def load_user_from_db(user_email):
 
 def add_user_to_db(user_data):
     user_type = 'user'
-    if user_data['email'] == 'yazan77712366@gmail.com':
+    if user_data['email'] == admin_email_1:
         user_type = 'admin'
     with engine.connect() as conn:
         query = text(f"INSERT INTO users(user_name, email, user_type ,password1, password2) VALUES (:user_name, :email, :user_type ,:password1, :password2)")
