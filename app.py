@@ -46,11 +46,13 @@ def login():
 
                 # my_tuple[0] is the stored email.
                 stored_hashed_password = my_tuple[1]
+                user_type = my_tuple[2]
 
                 if check_password_hash(stored_hashed_password, user_password):
                     session.permanent = True
-                    session['user_email'] = user_email # identify the user by his email because it is unique.
+                    session['user_email'] = user_email # identify and store the user by his email because it is unique.
                     # session is a dictionary and 'user_email' is key and user_email is a value.
+                    session['user_type'] = user_type # Store the user type.
                     flash("Logged in successfully!", category = 'success')
     
                     return redirect(url_for('home'))
@@ -122,32 +124,32 @@ def logout():
 def add_job():
     
 
-    session['user_email'] = user_email
-
-    session.pop('user_email', None)
-
-    session['user_email'] = user_email
-
-
-    if 'user_email' in session:
+    if 'user_email' in session and 'user_type' in session:
         user_email = session['user_email']
+        user_type = session['user_type']
 
-        user_info_list = load_admin_from_db(user_email)
-        print(user_info_list)
-        if user_info_list != -1:
-            for user_info in user_info_list: # for each user in users list
-                user_type = user_info[1]
-                print(user_type)
-
-                if user_type == 'admin':
-                    return render_template('add_job.html')
-                
-            # If no admin user type is found
-            flash('Access denied. Admins only.', category='error')
-            return redirect(url_for('landing_page'))
+        if user_type == 'admin':
+            return render_template('add_job.html')
         else:
-            flash('No user with this email.', category='error')
-            return redirect(url_for('login'))
+            print('Access denied. Admins only.')
+            return redirect(url_for('home'))
+
+        # user_info_list = load_admin_from_db(user_email)
+        # # print(user_info_list)
+        # if user_info_list != -1:
+        #     for user_info in user_info_list: # for each user in users list
+        #         user_type = user_info[1]
+        #         # print(user_type)
+
+        #         if user_type == 'admin':
+        #             return render_template('add_job.html')
+                
+        #     # If no admin user type is found
+        #     flash('Access denied. Admins only.', category='error')
+        #     return redirect(url_for('landing_page'))
+        # else:
+        #     flash('No user with this email.', category='error')
+        #     return redirect(url_for('login'))
             
     else:
         print('Please log in to access this page.')
