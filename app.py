@@ -13,7 +13,7 @@ load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv('app_secret_key')
-# app.permanent_session_lifetime = timedelta(minutes = 5)
+app.permanent_session_lifetime = timedelta(minutes = 5)
 
 
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -48,7 +48,7 @@ def login():
                 stored_hashed_password = my_tuple[1]
 
                 if check_password_hash(stored_hashed_password, user_password):
-                    # session.permanent = True
+                    session.permanent = True
                     session['user_email'] = user_email # identify the user by his email because it is unique.
                     # session is a dictionary and 'user_email' is key and user_email is a value.
                     flash("Logged in successfully!", category = 'success')
@@ -121,14 +121,22 @@ def logout():
 @app.route('/add_job', methods = ['GET'])
 def add_job():
     
+
+    session['user_email'] = user_email
+
+    session.pop('user_email', None)
+
+    session['user_email'] = user_email
+
+
     if 'user_email' in session:
         user_email = session['user_email']
 
         user_info_list = load_admin_from_db(user_email)
-
+        print(user_info_list)
         if user_info_list != -1:
             for user_info in user_info_list: # for each user in users list
-                user_type = user_info[2]
+                user_type = user_info[1]
                 print(user_type)
 
                 if user_type == 'admin':
