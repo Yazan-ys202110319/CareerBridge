@@ -8,6 +8,8 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(DATABASE_URL) # Load the database to the engine.
 
+admin_email_1 = os.getenv("admin_email_1")
+
 
 def load_jobs_from_db():
     with engine.connect() as conn: # with ensures that the connection is automatically closed when the block is exited.
@@ -63,7 +65,7 @@ def load_user_from_db(user_email):
 
 def add_user_to_db(user_data):
     user_type = 'user'
-    if user_data['email'] == "yazan77712366@gmail.com":
+    if user_data['email'] == admin_email_1:
         user_type = 'admin'
     with engine.connect() as conn:
         query = text(f"INSERT INTO users(user_name, email, user_type ,password1, password2) VALUES (:user_name, :email, :user_type ,:password1, :password2)")
@@ -80,7 +82,6 @@ def add_user_to_db(user_data):
         )
 
         conn.commit()
-
 
 
 def add_application_to_db(job_id, data): # data here is the application, and job means which job type the user want to apply.

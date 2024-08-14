@@ -192,7 +192,7 @@ def apply_to_job(id): # id is the job id
 MAILJET_API_KEY = os.getenv('MAILJET_API_KEY')
 MAILJET_SECRET_KEY = os.getenv('MAILJET_SECRET_KEY')
 # create an instance of the mailjet client to interact with mailjet api
-mailjet = Client(auth=(MAILJET_API_KEY, MAILJET_SECRET_KEY), version='v3.1')
+mailjet = Client(auth = (MAILJET_API_KEY, MAILJET_SECRET_KEY), version = 'v3.1')
 
 
 
