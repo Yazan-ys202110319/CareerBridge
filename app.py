@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request, url_for, session, redirect, flash
-from database import load_jobs_from_db, load_job_from_db, add_application_to_db, add_user_to_db, load_user_from_db, load_admin_from_db
+from database import load_jobs_from_db, load_job_from_db, add_application_to_db, add_user_to_db, load_user_from_db
 import os
 from mailjet_rest import Client
 from dotenv import load_dotenv

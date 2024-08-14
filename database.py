@@ -59,27 +59,6 @@ def load_user_from_db(user_email):
                 return -1
             else:
                 return temp
-
-
-def load_admin_from_db(email):
-
-    email = 'yazan77712366@gmail.com'
-
-    with engine.connect() as conn:
-        
-        query = text('SELECT email, user_type FROM users WHERE email = :email')
-        result = conn.execute(query, {
-            'email' : email
-        })
-
-        # Fetch all matching rows
-        user_info_list = result.fetchall()
-
-
-        if not user_info_list:
-            return -1 # no user found
-        else:
-            return user_info_list
         
 
 def add_user_to_db(user_data):
