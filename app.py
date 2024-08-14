@@ -133,23 +133,6 @@ def add_job():
         else:
             print('Access denied. Admins only.')
             return redirect(url_for('home'))
-
-        # user_info_list = load_admin_from_db(user_email)
-        # # print(user_info_list)
-        # if user_info_list != -1:
-        #     for user_info in user_info_list: # for each user in users list
-        #         user_type = user_info[1]
-        #         # print(user_type)
-
-        #         if user_type == 'admin':
-        #             return render_template('add_job.html')
-                
-        #     # If no admin user type is found
-        #     flash('Access denied. Admins only.', category='error')
-        #     return redirect(url_for('landing_page'))
-        # else:
-        #     flash('No user with this email.', category='error')
-        #     return redirect(url_for('login'))
             
     else:
         print('Please log in to access this page.')
