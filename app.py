@@ -5,7 +5,6 @@ from mailjet_rest import Client
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import login_user, login_required, logout_user, current_user
 from datetime import timedelta
 
 
