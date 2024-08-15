@@ -27,14 +27,14 @@ html, body {
     background-color: rgb(255, 255, 255);
     width: 50%;
     border-radius: 25px;
-    box-shadow: 10px 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: -7px 0 15px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10;
 }
 
 .big-logo {
-    width: 500px;
-    height: 500px;
-    align-items: center;
+    height: 100vh;
     width: 50%;
+    margin-left: 10px;
 }
 
 .about-us, .contact-us, .landing {
@@ -62,9 +62,9 @@ html, body {
     width: 150px;
     height: 40px;
     padding: 10px;
+    border: none;
 }
 
 .row-2 {
     display: flex;
-
 }
