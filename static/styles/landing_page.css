@@ -2,6 +2,7 @@ html, body {
     margin: 0;
     height: 100%;
     padding: 0;
+    background-color: #FFF;
 }
 
 .home_page {
@@ -19,7 +20,7 @@ html, body {
     display: flex;
     justify-content: start;
     align-items: center;
-    margin-top: 70px;
+    margin-top: 100px;
     margin-left: 100px;
 }
 
@@ -27,8 +28,10 @@ html, body {
     background-color: rgb(255, 255, 255);
     width: 50%;
     border-radius: 25px;
-    box-shadow: -7px 0 15px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: -7px 0 20px 10px rgba(0, 0, 0, 0.3);
     z-index: 10;
+    margin: -10px;
+    padding: 0;
 }
 
 .big-logo {
@@ -46,12 +49,12 @@ html, body {
 }
 
 .title {
-    margin-top: 150px;
+    margin-top: 170px;
     margin-left: 100px;
 }
 
 .details {
-    margin-top: 40px;
+    margin-top: 50px;
     margin-left: 100px;
 }
 
@@ -67,4 +70,5 @@ html, body {
 
 .row-2 {
     display: flex;
+    margin-top: 100px;
 }
