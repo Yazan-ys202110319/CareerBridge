@@ -5,6 +5,11 @@ html, body {
     background-color: #FFF;
 }
 
+@font-face {
+    font-family: myFont;
+    src: url(Larken/LarkenDEMO-Medium.otf);
+}
+
 .home_page {
     display: flex;
     flex-direction: column;
@@ -57,19 +62,27 @@ html, body {
     font-family: Fira Sans, sans-serif;
     text-decoration: underline;
     text-underline-offset: 3px;
-    font-size: 27px;
+    font-size: 29px;
     color: #000000;
 }
 
 
 .title {
-    margin-top: 170px;
+    margin-top: 140px;
     margin-left: 100px;
+    font-family: myFont, sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    color: #00754b;
+    max-width: 500px;
 }
 
 .details {
     margin-top: 50px;
     margin-left: 100px;
+    font-size: 27px;
+    max-width: 630px;
+    font-family: Roboto;
 }
 
 .start-btn {
