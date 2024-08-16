@@ -40,15 +40,27 @@ html, body {
     margin-left: 10px;
 }
 
-.about-us, .contact-us, .landing {
+.about-us {
     margin-right: 60px;
     font-family: Fira Sans, sans-serif;
+    font-size: 22px;
+}
+
+.contact-us {
+    margin-right: 60px;
+    font-family: Fira Sans, sans-serif;
+    font-size: 22px;
 }
 
 .landing {
     margin-right: 60px;
     font-family: Fira Sans, sans-serif;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 27px;
+    color: #000000;
 }
+
 
 .title {
     margin-top: 170px;
@@ -112,8 +124,8 @@ html, body {
 }
 
 .logo-footer {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     margin-top: 60px;
     margin-left: 400px;
     margin-bottom: 50px;
@@ -136,4 +148,9 @@ html, body {
     height: 45px;
     margin-top: 90px;
     margin-left: 40px;
+}
+
+.part-2 {
+    display: flex;
+    justify-content: center;
 }
