@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+}
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    width: auto;
+    height: 150px;
+    background-color: #e5ddc5;
+    display: flex;
+    align-items: center;
+}
+
+.contact-us {
+    margin-right: 80px;
+}
+
+.about-us {
+    text-decoration: underline;
+    margin-right: 80px;
+
+}
+
+.left-side {
+    display: flex;
+    align-items: center;
+}
+
+.landing {
+    text-decoration: none;
+    margin-left: 350px;
+    margin-right: 80px;
+    color: black;
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    margin-left: 100px;
+}
+
+.name {
+    font-size: 25px;
+}
