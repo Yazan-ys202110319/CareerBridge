@@ -18,14 +18,15 @@ body, html {
 
 .contact-us {
     margin-right: 80px;
-    font-family: 18px;
+    font-size: 25px;
     
 }
 
 .about-us {
     text-decoration: underline;
     margin-right: 80px;
-    font-family: 50px;
+    font-size: 30px;
+    color: black;
 }
 
 .left-side {
@@ -38,7 +39,7 @@ body, html {
     margin-left: 350px;
     margin-right: 80px;
     color: black;
-    font-family: 18px;
+    font-size: 25px;
 }
 
 .logo {
@@ -47,7 +48,7 @@ body, html {
     margin-left: 100px;
 }
 
-.name {
+.name-1 {
     font-size: 25px;
 }
 
@@ -127,12 +128,13 @@ body, html {
 .logo-footer {
     width: 70px;
     height: 70px;
-    margin-top: 65px;
+    margin-top: 80px;
     margin-left: 360px;
     margin-bottom: 50px;
+
 }
 
-.name-1 {
+.logo-name {
     margin-top: 95px;
     margin-left: 5px;
     font-size: 25px;
