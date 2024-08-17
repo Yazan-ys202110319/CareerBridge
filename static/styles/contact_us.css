@@ -184,3 +184,17 @@ body, html {
     padding: 10px;
     border: none;
 }
+
+.user_text {
+    margin-left: 100px;
+    margin-top: 20px;
+    width: 350px;
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+    height: 120px;
+}
+
+.submit-btn {
+    
+}
