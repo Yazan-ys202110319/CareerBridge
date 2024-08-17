@@ -46,3 +46,9 @@ body {
 .name {
     font-size: 25px;
 }
+
+.img {
+    width: 500px;
+    height: 800px;
+    margin-left: 100px;
+}
