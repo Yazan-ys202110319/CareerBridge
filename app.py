@@ -25,6 +25,13 @@ def landing_page():
     return render_template('landing_page.html')
 
 
+
+@app.route('/about_us', methods = ['GET'])
+def about_us():
+    return render_template('about_us.html')
+
+
+
 @app.route('/login', methods = ['POST', 'GET'])
 def login():
 

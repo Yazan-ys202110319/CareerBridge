@@ -54,6 +54,8 @@ html, body {
     margin-right: 60px;
     font-family: Fira Sans, sans-serif;
     font-size: 22px;
+    text-decoration: none;
+    color: #000000;
 }
 
 .contact-us {
@@ -259,4 +261,23 @@ html, body {
 
 .copy {
     padding-right: 8px;
+}
+
+.email {
+    margin-top: 100px;
+    color: #FFF;
+}
+
+.design {
+    text-decoration-color: #FFF;
+}
+
+.at {
+    margin-top: 100px;
+    margin-left: 45px;
+    padding-right: 10px;
+}
+
+.container-2 {
+    display: flex;
 }
