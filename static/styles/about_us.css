@@ -47,39 +47,43 @@ body {
     font-size: 25px;
 }
 
-.img {
-    width: 800px;
-    height: 800px;
-    margin-left: 100px;
-}
-
 .second-part {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    justify-content: start;
+    align-items: start;
 }
 
 .title-1 {
     font-family: Bangers, sans-serif;
     margin-top: 65px; 
     font-size: 35px;
+    margin-left: 350px;
 }
 
 .text-1 {
     font-family: Signika, sans-serif;
-    max-width: 750px;
+    max-width: 800px;
     font-size: 20px;
+    margin-left: 80px;
+}
+
+.img1 {
+    margin-left: 400px;
+    margin-top: 50px;
+    width: 230px;
+    height: 230px;
 }
 
 .title-2 {
-    font-family: Bangers, sans-serif;
-    font-size: 35px;
-    margin-top: 65px;
+    margin-left: 850px;
+    font-family: Bangers, sans-serif;   
+    font-size: 35px; 
 }
 
 .text-2 {
     font-family: Signika, sans-serif;
-    max-width: 750px;
+    max-width: 800px;
     font-size: 20px;
+    margin-left: 600px;
 }
