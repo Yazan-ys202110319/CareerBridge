@@ -31,7 +31,7 @@ def about_us():
     return render_template('about_us.html')
 
 
-@app.route('/contact_us', methods = ['GET'])
+@app.route('/contact_us', methods = ['GET', 'POST'])
 def contact_us():
     return render_template('contact_us.html')
     

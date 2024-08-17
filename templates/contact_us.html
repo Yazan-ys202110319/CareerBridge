@@ -37,22 +37,25 @@
             </nav>
 
             <div class="second-side">
-                <div class="container">
-                        <div class="get"> 
-                            Get in touch now
-                        </div>
-                        <div class="intro">
-                            We'd love to hear from you! Whether you have a question about our services, need assistance with your job search, or just want to share your feedback, we're here to help. 
-                        </div>
-                        <div class="name-email">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                            <input type="email" name="email" placeholder="Email Address" required>
-                        </div>
-                        <div class="text">
-                            <textarea name="message" placeholder="What can we help you with"></textarea>
-                        </div>
-                        <button class="submit" type="submit">Send <img src="static/images/right-arrow" alt="right arrow"></button>
-                </div>
+                <form action="https://api.web3forms.com/submit" method="post">
+                    <div class="container">
+                            <div class="get"> 
+                                Get in touch
+                            </div>
+                            <div class="intro">
+                                We'd love to hear from you! Whether you have a question about our services, need assistance with your job search, or just want to share your feedback, we're here to help. 
+                            </div>
+                            <input type="hidden" name="access_key" value="2cc86536-cd10-4a49-ac28-0327353127ec">
+                            <div class="name-email">
+                                <input class="user_name" type="text" name="name" placeholder="Your Name" required>
+                                <input class="user_email" type="email" name="email" placeholder="Email Address" required>
+                            </div>
+                            <div class="text">
+                                <textarea name="message" placeholder="What can we help you with"></textarea>
+                            </div>
+                            <button class="submit" type="submit">Send <img src="static/images/right-arrow" alt="right arrow"></button>
+                    </div>
+                </form>
             </div>
 
         </div>

@@ -161,3 +161,26 @@ body, html {
     font-size: 20px;
     max-width: 500px;
 }
+
+.name-email {
+    display: flex;
+    flex-direction: column;
+}
+
+.user_name {
+    margin-left: 100px;
+    margin-top: 60px;
+    width: 350px;
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+}
+
+.user_email {
+    margin-left: 100px;
+    margin-top: 20px;
+    width: 350px;
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+}
