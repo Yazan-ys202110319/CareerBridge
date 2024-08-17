@@ -48,7 +48,26 @@ body {
 }
 
 .img {
-    width: 500px;
+    width: 800px;
     height: 800px;
     margin-left: 100px;
+}
+
+.second-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-family: Bangers, sans-serif;
+    margin-top: 65px; 
+    font-size: 35px;
+}
+
+.text-1 {
+    font-family: Signika, sans-serif;
+    max-width: 750px;
+    font-size: 20px;
 }
