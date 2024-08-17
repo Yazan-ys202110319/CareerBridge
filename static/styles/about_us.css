@@ -1,5 +1,6 @@
-body {
+body, html {
     margin: 0;
+    padding: 0;
 }
 
 .home-page {
@@ -17,12 +18,14 @@ body {
 
 .contact-us {
     margin-right: 80px;
+    font-family: 18px;
+    
 }
 
 .about-us {
     text-decoration: underline;
     margin-right: 80px;
-
+    font-family: 50px;
 }
 
 .left-side {
@@ -35,6 +38,7 @@ body {
     margin-left: 350px;
     margin-right: 80px;
     color: black;
+    font-family: 18px;
 }
 
 .logo {
@@ -57,7 +61,7 @@ body {
 .title-1 {
     font-family: Bangers, sans-serif;
     margin-top: 65px; 
-    font-size: 35px;
+    font-size: 40px;
     margin-left: 350px;
 }
 
@@ -78,7 +82,8 @@ body {
 .title-2 {
     margin-left: 850px;
     font-family: Bangers, sans-serif;   
-    font-size: 35px; 
+    font-size: 40px; 
+    margin-top: 0;
 }
 
 .text-2 {
@@ -86,4 +91,93 @@ body {
     max-width: 800px;
     font-size: 20px;
     margin-left: 600px;
+}
+
+.img2 {
+    background: transparent;
+    margin-left: 200px;
+}
+
+.title-3 {
+    font-family: Bangers, sans-serif;   
+    margin-left: 200px;
+    font-size: 40px; 
+}
+
+.text-3 {
+    font-family: Signika, sans-serif;
+    max-width: 800px;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-bottom: 100px;
+}
+
+
+.footer {
+    background-color: rgb(0, 0, 0);
+    color: #FFF;
+    margin: 0;
+}
+
+.part-1 {
+    display: flex;
+    text-align: center;
+}
+
+.logo-footer {
+    width: 70px;
+    height: 70px;
+    margin-top: 65px;
+    margin-left: 360px;
+    margin-bottom: 50px;
+}
+
+.name-1 {
+    margin-top: 95px;
+    margin-left: 5px;
+    font-size: 25px;
+    text-decoration: none;
+    margin-bottom: 90px;
+}
+
+.linkedin {
+    width: 43px;
+    height: 40px;
+    margin-top: 95px;
+    margin-left: 355px;
+}
+
+.github {
+    width: 45px;
+    height: 45px;
+    margin-top: 90px;
+    margin-left: 40px;
+}
+
+.part-2 {
+    display: flex;
+    justify-content: center;
+}
+
+.copy {
+    padding-right: 8px;
+}
+
+.email {
+    margin-top: 100px;
+    color: #FFF;
+}
+
+.design {
+    text-decoration-color: #FFF;
+}
+
+.at {
+    margin-top: 100px;
+    margin-left: 45px;
+    padding-right: 10px;
+}
+
+.container-2 {
+    display: flex;
 }
