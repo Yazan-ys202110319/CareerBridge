@@ -58,10 +58,103 @@ html, body {
     color: #000000;
 }
 
+.btn-1 {
+    border: none;
+    width: 200px;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #d2d0d0;
+}
+
+
+.btn-1:hover {
+    border: none;
+    width: 200px;
+    height: 50px;
+    border-radius: 15px;
+    font-size: 25px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.btn-2 {
+    border: none;
+    height: 50px;
+    width: 130px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: Fira Sans, sans-serif;
+    font-size: 22px;
+}
+
+
+.btn-2:hover {
+    border: none;
+    height: 50px;
+    width: 130px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: Fira Sans, sans-serif;
+    font-size: 22px;
+    text-decoration: underline;
+    background-color: #dad9d9;
+}
+
+.btn-2:active {
+    border: none;
+    height: 50px;
+    width: 130px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: Fira Sans, sans-serif;
+    font-size: 22px;
+    text-decoration: underline;
+    background-color: #d2d0d0;
+}
+
+
+.btn-3 {
+    border: none;
+    height: 50px;
+    width: 130px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: Fira Sans, sans-serif;
+    font-size: 22px;
+}
+
+.btn-3:hover {
+    border: none;
+    height: 50px;
+    width: 130px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: Fira Sans, sans-serif;
+    font-size: 22px;
+    background-color: #dad9d9;
+    text-decoration: underline;
+}
+
+.btn-3:active {
+    border: none;
+    height: 50px;
+    width: 130px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: Fira Sans, sans-serif;
+    font-size: 22px;
+    background-color: #d2d0d0;
+    text-decoration: underline;
+}
+
 .contact-us {
     margin-right: 60px;
     font-family: Fira Sans, sans-serif;
     font-size: 22px;
+    text-decoration: none;
+    color: #000000;
 }
 
 .landing {

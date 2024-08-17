@@ -19,7 +19,9 @@ body, html {
 .contact-us {
     margin-right: 80px;
     font-size: 25px;
-    
+    color: #009177;
+    font-family: Fira sans, sans-serif;
+    font-weight: 500;
 }
 
 .about-us {
@@ -27,6 +29,8 @@ body, html {
     margin-right: 80px;
     font-size: 30px;
     color: black;
+    font-family: Fira sans, sans-serif;
+    font-weight: 500;
 }
 
 .left-side {
@@ -36,10 +40,90 @@ body, html {
 
 .landing {
     text-decoration: none;
-    margin-left: 350px;
+    margin-left: 280px;
     margin-right: 80px;
     color: black;
     font-size: 25px;
+    color: #009177;
+    font-family: Fira sans, sans-serif;
+    font-weight: 500;
+}
+
+.btn-1 {
+    font-size: 25px;
+    color: #009177;
+    font-family: Fira sans, sans-serif;
+    font-weight: 500;
+    border: none;
+    border-radius: 15px;
+    width: 120px;
+    height: 50px;
+    background-color: #e5ddc5;
+    cursor: pointer;
+}
+
+.btn-1:hover {
+    font-size: 25px;
+    color: #009177;
+    font-family: Fira sans, sans-serif;
+    font-weight: 500;
+    border: none;
+    border-radius: 15px;
+    width: 120px;
+    height: 50px;
+    background-color: #e5ddc5;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-2 {
+    font-size: 30px;
+    font-family: Fira sans, sans-serif;
+    border: none;
+    border-radius: 15px;
+    width: 160px;
+    height: 60px;
+    background-color: #e5ddc5;
+    cursor: pointer;
+}
+
+.btn-2:hover {
+    font-size: 30px;
+    font-family: Fira sans, sans-serif;
+    border: none;
+    border-radius: 15px;
+    width: 160px;
+    height: 60px;
+    background-color: #e5ddc5;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn-3 {
+    font-size: 25px;
+    color: #009177;
+    font-family: Fira sans, sans-serif;
+    font-weight: 500;
+    border: none;
+    border-radius: 15px;
+    width: 140px;
+    height: 50px;
+    background-color: #e5ddc5;
+    cursor: pointer;
+}
+
+.btn-3:hover {
+    font-size: 25px;
+    color: #009177;
+    font-family: Fira sans, sans-serif;
+    font-weight: 500;
+    border: none;
+    border-radius: 15px;
+    width: 140px;
+    height: 50px;
+    background-color: #e5ddc5;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .logo {
@@ -50,6 +134,14 @@ body, html {
 
 .name-1 {
     font-size: 25px;
+    text-decoration: none;
+    color: black;
+}
+
+.name-link {
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
 }
 
 .second-part {
