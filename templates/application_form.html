@@ -1,40 +1,48 @@
 
 <link rel="stylesheet" href="static/styles/application_form.css">
 
-<h4>Application Form</h4>
-<form action="/job/{{job['id']}}/apply" method="post">
+<div class="cont">
 
-    <div>
-        <label>Full name</label>
-        <br/>
-        <input type = "text" name = 'full_name' placeholder="Enter your full name" required>
-    </div>
 
-    <div>
-        <label>Email</label><br/>
-        <input type = "email" name = 'email' placeholder="Sample@example.com" required>
-    </div>
+    <h4 class="app">Application Form</h4>
+    <form action="/job/{{job['id']}}/apply" method="post">
 
-    <div>
-        <label>LinkedIn URL</label><br/>
-        <input type = "url" name = 'linkedin_url' placeholder="https://www.linkedin.com/in/example">
-    </div>
+        <div>
+            <label class="name">Full name</label>
+            <br/>
+            <input class="name-input" type = "text" name = 'full_name' placeholder="Enter your full name" required>
+        </div>
 
-    <div>
-        <label>Education</label><br/>
-        <textarea name="education"></textarea>
-    </div>
+        <div>
+            <label class="email">Email</label><br/>
+            <input class="email-input" type = "email" name = 'email' placeholder="Sample@example.com" required>
+        </div>
 
-    <div>
-        <label>Work Experience</label><br/>
-        <textarea name="work_experience"></textarea>
-    </div>
+        <div>
+            <label class="linked">LinkedIn URL</label><br/>
+            <input class="linked-input" type = "url" name = 'linkedin_url' placeholder="https://www.linkedin.com/in/example">
+        </div>
 
-    <div>
-        <label>Resume URL</label><br/>
-        <input type = "url" name = 'resume'>
-    </div>
+        <div>
+            <label class="edu">Education</label><br/>
+            <textarea class="edu-input" name="education"></textarea>
+        </div>
 
-    <input type="submit">
+        <div>
+            <label class="work">Work Experience</label><br/>
+            <textarea class="work-input" name="work_experience"></textarea>
+        </div>
 
-</form>
+        <div>
+            <label class="rus">Resume URL</label><br/>
+            <input class="rus-input" type = "url" name = 'resume'>
+        </div>
+
+        <div class="conta">
+            <input class="btn" type="submit">
+        </div>
+        
+
+    </form>
+
+</div>

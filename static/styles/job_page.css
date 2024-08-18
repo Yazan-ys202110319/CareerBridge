@@ -1,0 +1,99 @@
+body {
+    /* background: linear-gradient(#e5eaf5, #d0bdf4);  */
+    background-color: #f7f8ff;
+}
+
+.container {
+    margin-left: 50px;
+}
+
+.title {
+    font-size: 28px;
+}
+
+.job-title {
+    font-size: 22px;
+}
+
+.location {
+    font-size: 28px;
+}
+
+.loct {
+    font-size: 22px;
+}
+
+.salary {
+    font-size: 28px;
+}
+
+.sal {
+    font-size: 22px;
+}
+
+.resbon {
+    font-size: 30px;
+}
+
+.res {
+    font-size: 22px;
+}
+
+.requirement {
+    font-size: 30px;
+}
+
+.req {
+    font-size: 22px;
+}
+
+.cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.app {
+    font-size: 35px;
+}
+
+.name, .email, .linked, .edu, .work, .rus {
+    font-size: 20px;
+    margin-top: 100px;
+}
+
+.name-input, .email-input, .linked-input, .rus-input {
+    width: 500px;
+    height: 20px;
+}
+
+.edu-input {
+    width: 500px;
+    height: 50px;
+}
+
+.work-input {
+    width: 500px;
+    height: 50px;
+}
+
+.conta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    width: 150px;
+    height: 35px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(10, 132, 255);
+    color: #FFF;
+}

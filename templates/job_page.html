@@ -8,7 +8,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="static/styles/application_form.css">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/job_page.css') }}">
+
 
         <title>{{job.title}} - CareerBridge</title>
 
@@ -18,24 +20,26 @@
     <body>
         <div class="container">
 
-            <h3 class="title">Title</h3>
-            <p>{{job.title}}</p>
-            <h3>Location</h3>
-            <p>{{job.location}}</p>
-            <h3>Salary</h3>
-            <p>{{job.currency}} {{job.salary}}</p>
-            <h3>Responsibilities</h3>
-                <ul>
+            <h3 class="title">Job title</h3>
+            <p class="job-title">{{job.title}}</p>
+            <h3 class="location">Location</h3>
+            <p class="loct">{{job.location}}</p>
+            <h3 class="salary">Salary</h3>
+            <p class="sal">{{job.currency}} {{job.salary}}</p>
+            <h3 class="resbon">Responsibilities</h3>
+                <ul class="res">
                     {% for line in job.responsibilities.split("\n") %}
                         <li>{{line}}</li>
                     {% endfor %}
                 </ul>
-            <h3>Requirements</h3>
-            <ol>
+            <h3 class="requirement">Requirements</h3>
+            <ol class="req">
+                
                 {% for line in job.requirements.split("\n") %}
                     <li>{{line}}</li>
                 {% endfor %}
             </ol>
+
         </div>
         {% include 'application_form.html' %}
     </body>
