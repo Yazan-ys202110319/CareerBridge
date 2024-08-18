@@ -47,7 +47,9 @@
                 <div>
                     {% for job in jobs %}
                         {% include 'job_item.html' %}
-                        <hr class="line">
+                        {% if not loop.last %} <!-- This condition checks if it's not the last iteration -->
+                            <hr class="line">
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
