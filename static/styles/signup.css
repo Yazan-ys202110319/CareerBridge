@@ -137,12 +137,12 @@ body, html {
 
 .btn {
     margin-left: 350px;
-    margin-top: 80px; 
+    margin-top: 60px; 
     padding: 10px 40px;
     border-radius: 10px;
     border: none;
     cursor: pointer;
-    margin-bottom: 55px;
+    margin-bottom: 28px;
     background-color: #004eb6;
     color: #FFF;
     width: 160px;
@@ -153,4 +153,10 @@ body, html {
     width: 620px;
     margin-top: 80px;
     margin-left: 80px;
+}
+
+.login {
+    margin-top: 0;
+    margin-left: 300px;
+    font-size: 18px;
 }
