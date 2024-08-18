@@ -1,0 +1,156 @@
+body, html {
+    margin: 0;
+}
+.logo {
+    width: 80px;
+    height: 80px;
+    margin-left: 50px;
+}
+
+.home-page {
+    display: flex;
+    background: linear-gradient(#FFDAD5, #FFF7f9);
+}
+
+.title {
+    font-size: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.go {
+    margin-left: 60px;
+    font-size: 18px;
+    
+}
+
+.go-back {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create {
+    margin-left: 80px;
+    font-size: 35px;
+    margin-top: 50px;
+}
+
+.arrow-create {
+    display: flex;
+    align-items: center;
+}
+
+.arrow-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-top: 0;
+}
+
+.arrow {
+    width: 60px;
+    height: 30px;
+    background-color: transparent;
+    margin-top: 12px;
+    margin-left: 40px;
+}
+
+.line-1 {
+    display: flex;
+    margin-left: 50px;
+}
+
+.name {
+    padding-right: 70px;
+    margin-left: 70px;
+    border-radius: 7px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 9px;
+}
+
+.name-la {
+    margin-left: 70px;
+    font-size: 20px;
+}
+
+.line-2 {
+    display: flex;
+    margin-top: 40px;
+}
+
+.email-la {
+    margin-left: 116px;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.email {
+    padding-right: 70px;
+    margin-left: 115px;
+    border-radius: 7px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 9px;
+}
+
+.line-3 {
+    display: flex;
+    margin-top: 40px;
+}
+
+.password1 {
+    padding-right: 70px;
+    margin-left: 115px;
+    border-radius: 7px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 9px;
+}
+
+.pass1-la {
+    margin-left: 116px;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.password2 {
+    padding-right: 70px;
+    margin-left: 90px;
+    border-radius: 7px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 9px;
+}
+
+.pass2-la {
+    margin-left: 90px;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.btn {
+    margin-left: 350px;
+    margin-top: 80px; 
+    padding: 10px 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 55px;
+    background-color: #004eb6;
+    color: #FFF;
+    width: 160px;
+    font-size: 18px;
+}
+
+.signup {
+    width: 620px;
+    margin-top: 80px;
+    margin-left: 80px;
+}

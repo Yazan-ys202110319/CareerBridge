@@ -3,10 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <link rel="stylesheet" href="static/styles/signup.css">
+        <title>CareerBridge - Signup</title>
     </head>
     <body>
-        This is the signup page
+
+        <div class="home-page">
+
+
+        <div class="first-side">
+
+
+        <div class="header">
+            <img class="logo" src="static/images/logo-1.png" alt="CareerBridge logo">
+            <p class="title">CareerBridge</p>
+        </div>
+
+        <div class="arrow-create">
+            <p class="create">Create your CareerBridge Account</p>
+        </div>
+        
+
         <br/>
         <br/>
         
@@ -34,35 +51,52 @@
         {% endwith %}
 
         <form method="post" action="/signup">
+            <div class="line-1">
+                <div>
+                    <label class="name-la">Full name</label>
+                    <br/>
+                    <input class="name" type = "text" name = 'user_name' placeholder="Your name" required>
+                </div>
+            </div>
+            
 
-            <div>
-                <label>Full name</label>
-                <br/>
-                <input type = "text" name = 'user_name' placeholder="Enter your full name">
+            <div class="line-2">
+                <div>
+                    <label class="email-la">Email</label><br/>
+                    <input class="email" type = "email" name = 'email' placeholder="Sample@example.com" required>
+                </div>
+            </div>
+            
+            <div class="line-3">
+                <div>
+                    <label class="pass1-la">Password</label><br/>
+                    <input class="password1" type = "text" name = 'password1' required placeholder="••••••••••••">
+                </div>
+    
+    
+                <div>
+                    <label class="pass2-la">Confirm password</label><br/>
+                    <input class="password2" type = "text" name = 'password2' required placeholder="••••••••••••">
+                </div>
+    
             </div>
 
-                
-            <div>
-                <label>Email</label><br/>
-                <input type = "email" name = 'email' placeholder="Sample@example.com" >
-            </div>
-
-
-            <div>
-                <label>password</label><br/>
-                <input type = "text" name = 'password1'>
-            </div>
-
-
-            <div>
-                <label>confirm password</label><br/>
-                <input type = "text" name = 'password2'>
-            </div>
-
-            <input type="submit">
+            
+            <input class="btn" type="submit">
 
             </form>
 
+        </div>
+
+        <div class="second-side">
+
+        </div>
+
+        <div class="second-side">
+            <img class="signup" src="static/images/signup.png" alt="sign up icon">
+        </div>
+
+    </div>
 
     </body>
 </html>
