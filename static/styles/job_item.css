@@ -7,5 +7,37 @@
 }
 
 .apply-btn {
+    width: 130px;
+    height: 45px;
+    margin-right: 50px;
+    border-radius: 28px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    background-color: #00c896;
+    color: #FFF;
+}
 
+.apply-btn:hover {
+    width: 130px;
+    height: 45px;
+    margin-right: 50px;
+    border-radius: 28px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    background-color: #04dea7;
+    color: #FFF;
+}
+
+.apply-btn:active {
+    width: 130px;
+    height: 45px;
+    margin-right: 50px;
+    border-radius: 28px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    background-color: #07b187;
+    color: #FFF;
 }

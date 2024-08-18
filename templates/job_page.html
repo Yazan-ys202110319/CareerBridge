@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Gupter:wght@400;500;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-        <link href="{{ url_for('static', filename='job_page.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="static/styles/application_form.css">
 
         <title>{{job.title}} - CareerBridge</title>
 
@@ -17,8 +17,8 @@
 
     <body>
         <div class="container">
-            <a href="/"><div><b>CareerBridge</b></div></a>
-            <h3 class="test">Title</h3>
+
+            <h3 class="title">Title</h3>
             <p>{{job.title}}</p>
             <h3>Location</h3>
             <p>{{job.location}}</p>
