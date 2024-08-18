@@ -17,7 +17,6 @@ body, html {
     align-items: center;
 }
 
-
 .btn-1 {
     margin-right: 70px;
     font-size: 25px;
@@ -134,11 +133,12 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #eceae4;
 }
 
 .container {
     width: 100vh;
-    height: 90vh;
+    height: 100vh;
     background-color: #006d77;
     margin-top: 120px;
     margin-bottom: 150px;
@@ -151,7 +151,7 @@ body, html {
     margin-top: 100px;
     font-family: Fira sans, sans-serif;
     font-size: 35px;
-    color: #bee1de;
+    color: #fff;
 }
 
 .intro {
@@ -172,8 +172,9 @@ body, html {
     margin-top: 60px;
     width: 350px;
     border-radius: 15px;
-    padding: 10px;
+    padding: 12px 12px;
     border: none;
+    font-family: Timmana, sans-serif;
 }
 
 .user_email {
@@ -181,25 +182,40 @@ body, html {
     margin-top: 20px;
     width: 350px;
     border-radius: 15px;
-    padding: 10px;
+    padding: 12px 12px;
     border: none;
+    font-family: Timmana, sans-serif;
 }
+
 
 .user_text {
     margin-left: 100px;
     margin-top: 20px;
     width: 350px;
     border-radius: 15px;
-    padding: 10px;
+    padding: 12px 12px;
     border: none;
     height: 120px;
+    font-family: Timmana, sans-serif;
 }
 
 .submit-btn {
-    
+    width: 120px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: #FFF;
+    gap: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(270deg, #ff994f, #fa6d86 );
 }
 
-.arrow {
-    width: 50px;
-    height: 50px;
+.arow {
+    height: 15px;
 }
