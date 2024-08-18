@@ -12,7 +12,7 @@ load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv('app_secret_key')
-app.permanent_session_lifetime = timedelta(minutes = 5)
+# app.permanent_session_lifetime = timedelta(minutes = 5)
 
 
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -109,6 +109,9 @@ def signup():
                 'password1': hashed_password,
                 'password2': hashed_password
             }
+
+            session['user_email'] = email
+            session['user_type'] = 'user'  # Set the default user type
 
             flash("Account created successfully!", category = 'success')
             add_user_to_db(user_data)

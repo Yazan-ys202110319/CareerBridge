@@ -1,48 +1,154 @@
-body {
+body, html {
     margin: 0;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
 }
 
 .home-page {
     display: flex;
     flex-direction: column;
-    background-color: black;
 }
 
-.title {
-    font-size: 60px;
+.sec-2 .title {
+    font-size: 50px;
     font-family: Unna, sans-serif;
+    color: black;
+    margin-right: 200px;
+    margin-left: 380px;
+    margin-bottom: 30px;
+}
+
+.sec-3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbar {
     display: flex;
     width: auto;
     height: 120px;
-    background-color: rgb(42, 42, 42);
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     color: #FFF;
 }
 
-.about {
-    font-family: Gupter, sans-serif;
-    font-weight: bold;
-    text-align: center;
-    font-size: 32px;
+.btn-1 {
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    color: black;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: #d2d0d0;
 }
 
-.about-section {
-    background-color: rgb(42, 42, 42);
-    display: flex;
-    flex-direction: column;
-    margin: 18px 13px;
-    border-radius: 7px;
-    color: #FFF;
+.btn-2 {
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    color: black;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: #d2d0d0;
 }
 
-.about-text {
-    font-family: Inter, sans-serif;
-    padding-left: 15px;
-    font-size: 20px;
+.btn-3 {
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    color: black;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: #d2d0d0;
+}
+
+.btn-1:hover {
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    color: black;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: underline;
+    background-color: #dad9d9;
+}
+
+.btn-1:active {
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    color: black;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: underline;
+    background-color: #d2d0d0;
+
+}
+
+.btn-2:hover {
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    color: black;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: #dad9d9;
+    text-decoration: underline;
+}
+
+.btn-2:active {
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    color: black;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: underline;
+    background-color: #d2d0d0;
+}
+
+.btn-3:hover {
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    color: black;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: #dad9d9;
+    text-decoration: underline;
+}
+
+.btn-3:active {
+    border: none;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    color: black;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: underline;
+    background-color: #d2d0d0;
 }
 
 .jobs {
@@ -50,7 +156,8 @@ body {
     text-align: center;
     color: #FFF;
     font-weight: bold;
-    font-size: 35px;
+    font-size: 38px;
+    margin-top: 100px;
 }
 
 .jobs-section {
@@ -62,27 +169,14 @@ body {
     color: white;
 }
 
-.contact-us {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.footer {
+    background-color: rgb(42, 42, 42);
 }
 
-.btn {
-    width: 120px;
-    height: 50px;
-    cursor: pointer;
-    margin-top: 20px;
-    border-radius: 10px;
-    background-color: #007AFF ;
-    border: none;
-    color: #FFF;
-    font-size: 18px;
-    padding: 10px;
-}
-
-.copy-right {
-    color: white;
-    font-family: Inter, sans-serif;
+.logo-footer {
+    width: 70px;
+    height: 70px;
+    margin-top: 65px;
+    margin-left: 360px;
+    margin-bottom: 50px;
 }
