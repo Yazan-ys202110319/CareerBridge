@@ -1,8 +1,25 @@
 .wrong-alert {
     background-color: rgb(239, 61, 61);
     width: 50%;
-    margin-left: 0px;
     padding: 0;
-    margin-right: 73px;
+    margin-right: 75px;
     margin-bottom: 30px;
+
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 15px;
+    font-family: Lato, sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrong-btn {
+
+    font-size: 25px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: Lato, sans-serif;
 }
