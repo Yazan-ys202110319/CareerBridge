@@ -150,6 +150,34 @@ body, html {
     font-size: 18px;
 }
 
+.btn:hover {
+    margin-left: 350px;
+    margin-top: 60px; 
+    padding: 10px 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 28px;
+    background-color: #1668d4;
+    color: #FFF;
+    width: 160px;
+    font-size: 18px;
+}
+
+.btn:active {
+    margin-left: 350px;
+    margin-top: 60px; 
+    padding: 10px 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 28px;
+    background-color: #094595;
+    color: #FFF;
+    width: 160px;
+    font-size: 18px;
+}
+
 .signup {
     width: 620px;
     margin-top: 80px;
