@@ -61,7 +61,6 @@ def login():
                 session['user_email'] = user_email # identify and store the user by his email because it is unique.
                 # session is a dictionary and 'user_email' is key and user_email is a value.
                 session['user_type'] = user_type # Store the user type.
-                flash("Logged in successfully!", category = 'success')
 
                 return redirect(url_for('home'))
             
@@ -113,7 +112,6 @@ def signup():
             session['user_email'] = email
             session['user_type'] = 'user'  # Set the default user type
 
-            flash("Account created successfully!", category = 'success')
             add_user_to_db(user_data)
             return redirect(url_for('home'))
 
@@ -126,7 +124,6 @@ def signup():
 @app.route('/logout')
 def logout():
     session.pop('user_email', None) # To delete the user information from the session.
-    flash('You have been logged out.', category = 'correct')
     return redirect(url_for('landing_page'))
      
 
@@ -147,7 +144,6 @@ def add_job():
                     return render_template('add_job.html')
                 
             # No admin found after iterating through all users
-            flash('Access denied. Admins only.', category = 'error')
             return redirect(url_for('home'))
         else:
             flash('No user with this email.', category = 'error')
@@ -169,7 +165,6 @@ def home():
         return render_template('home.html', jobs = jobs) 
     else:
         # User is not logged in
-        flash('Please log in to access this page.', category = 'error')
         return redirect(url_for('login'))
 
 
