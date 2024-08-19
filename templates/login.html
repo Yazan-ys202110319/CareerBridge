@@ -3,24 +3,88 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CareerBridge - Signup </title>
+        <link rel="stylesheet" href="static/styles/login.css">
+        <title>CareerBridge - Login</title>
     </head>
     <body>
 
+        <div class="home-page">
 
-        <form action="/login" method="post">
 
-            <div>
-                <label>Email</label><br/>
-                <input type = "email" name = 'email' placeholder="Sample@example.com" >
+        <div class="first-side">
+
+
+        <div class="header">
+            <img class="logo" src="static/images/logo-1.png" alt="CareerBridge logo">
+            <p class="title">CareerBridge</p>
+        </div>
+
+        <div class="arrow-create">
+            <p class="create">Login</p>
+        </div>
+        
+
+        <br/>
+        <br/>
+        
+        <!-- messages here is variable and get_flashed_messages is a method from jinja -->
+        {% with messages = get_flashed_messages(with_categories = true) %}
+            {% if messages %} <!--if you have messages -->
+                {% for category, message in messages %}
+                    {% if category == 'error' %}
+                        <div class="wrong-alert"> <!-- if the alert is wrong -->
+                            {{message}} <!-- display the message -->
+                            <button class="wrong-btn">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                    {% else %}
+                        <div class="wrong-alert"> <!-- if the alert is correct -->
+                            {{message}}
+                            <button class="wrong-btn">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form class="form" method="post" action="/signup">
+            
+
+            <div class="line-2">
+                <div>
+                    <label class="email-la">Email</label><br/>
+                    <input class="email" type = "email" name = 'email' placeholder="Sample@example.com" required>
+                </div>
             </div>
+            
+
+                <div>
+                    <label class="pass1-la">Password</label><br/>
+                    <input class="password1" type = "text" name = 'password1' required placeholder="••••••••••••">
+                </div>
 
 
-            <div>
-                <label>password</label><br/>
-                <input type = "text" name = 'password1'>
-            </div>
-            <input type="submit">
-        </form>
+            
+            <input class="btn" type="submit">
+
+            </form>
+
+            <p class="login">Don't have a CareerBridge account yet? <span><a href="/signup">Login here!</a></span></p>
+
+        </div>
+
+        <div class="second-side">
+
+        </div>
+
+        <div class="second-side">
+            <img class="signup" src="static/images/signup.png" alt="sign up icon">
+        </div>
+
+    </div>
+
     </body>
 </html>

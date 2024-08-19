@@ -13,6 +13,12 @@ body, html {
     height: 100vh;
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .title {
     font-size: 20px;
 }
@@ -21,19 +27,6 @@ body, html {
     display: flex;
     align-items: center;
     margin-top: 20px;
-}
-
-.go {
-    margin-left: 60px;
-    font-size: 18px;
-    
-}
-
-.go-back {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .create {
@@ -46,6 +39,7 @@ body, html {
     display: flex;
     align-items: center;
 }
+
 
 .arrow-btn {
     background-color: transparent;
@@ -62,24 +56,6 @@ body, html {
     margin-left: 40px;
 }
 
-.line-1 {
-    display: flex;
-    margin-left: 50px;
-}
-
-.name {
-    padding-right: 70px;
-    margin-left: 70px;
-    border-radius: 7px;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    padding-left: 9px;
-}
-
-.name-la {
-    margin-left: 70px;
-    font-size: 20px;
-}
 
 .line-2 {
     display: flex;
@@ -121,20 +97,6 @@ body, html {
     font-size: 20px;
 }
 
-.password2 {
-    padding-right: 70px;
-    margin-left: 90px;
-    border-radius: 7px;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    padding-left: 9px;
-}
-
-.pass2-la {
-    margin-left: 90px;
-    margin-top: 30px;
-    font-size: 20px;
-}
 
 .btn {
     margin-left: 350px;
@@ -158,6 +120,6 @@ body, html {
 
 .login {
     margin-top: 0;
-    margin-left: 300px;
+    margin-left: 260px;
     font-size: 18px;
 }
