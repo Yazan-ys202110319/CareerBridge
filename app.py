@@ -12,7 +12,7 @@ load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv('app_secret_key')
-app.permanent_session_lifetime = timedelta(minutes = 5)
+app.permanent_session_lifetime = timedelta(minutes = 20)
 
 
 DATABASE_URL = os.getenv("DATABASE_URL")
