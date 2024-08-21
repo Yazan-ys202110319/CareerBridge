@@ -217,7 +217,7 @@ def send_confirmation_email(user_email, user_name, job_title):
                     "Name": "CareerBridge"
                 },
 
-                 # Second portion of the dictionary 
+                # Second portion of the dictionary 
                 "To": [ # Mailjet API expect a list in the To filed
                     {
                         "Email": user_email,

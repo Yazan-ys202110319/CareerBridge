@@ -61,35 +61,6 @@
         {% endwith %}
 
         
-        <!-- Only trigger the redirect if delay_redirect is true -->
-        {% if delay_redirect %}
-        <script>
-    
-            document.addEventListener('DOMContentLoaded', function(){
-                const closeButton = document.querySelectorAll('.close-btn');
-
-                closeButton.forEach(button => {
-                    button.addEventListener('click', function(){
-                        const alertBox = this.parentElement;
-                        console.log('Close button clicked:', button);
-                        alertBox.style.opacity = '0';
-                        setTimeout(function(){
-                            alertBox.style.display = 'none';
-                        }, 600);
-                    });
-                });
-            
-            // Redirect to the home page after a 3-second delay
-            setTimeout(function() {
-                window.location.href = "{{ url_for('home') }}";
-            }, 1000);
-
-        });
-
-        </script>
-        {% endif %}
-
-        
 
     </div>
 
