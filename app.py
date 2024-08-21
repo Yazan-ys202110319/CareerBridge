@@ -113,7 +113,10 @@ def signup():
             session['user_type'] = 'user'  # Set the default user type
 
             add_user_to_db(user_data)
-            return redirect(url_for('home'))
+            flash('Account has been created!', category = 'success')
+
+            # Render the signup page again with the flash message and trigger a delayed redirect
+            return render_template('signup.html', delay_redirect = True)
 
 
         return redirect(url_for('signup'))
@@ -125,7 +128,7 @@ def signup():
 def logout():
     session.pop('user_email', None) # To delete the user information from the session.
     return redirect(url_for('landing_page'))
-     
+
 
 
 @app.route('/add_job', methods = ['GET'])
