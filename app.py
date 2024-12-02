@@ -25,18 +25,19 @@ def landing_page():
     return render_template('landing_page.html')
 
 
-
+# Abous us page
 @app.route('/about_us', methods = ['GET'])
 def about_us():
     return render_template('about_us.html')
 
 
+# Contact us page
 @app.route('/contact_us', methods = ['GET', 'POST'])
 def contact_us():
     return render_template('contact_us.html')
     
 
-
+# login page
 @app.route('/login', methods = ['POST', 'GET'])
 def login():
 
@@ -81,6 +82,7 @@ def login():
     return render_template('login.html')
 
 
+# Singup page
 @app.route('/signup', methods = ['POST', 'GET'])
 def signup():
     if request.method == 'POST':
@@ -124,13 +126,14 @@ def signup():
     else: # here for the get method
         return render_template('signup.html')
 
+# Logout page
 @app.route('/logout')
 def logout():
     session.pop('user_email', None) # To delete the user information from the session.
     return redirect(url_for('landing_page'))
 
 
-
+# Add job page
 @app.route('/add_job', methods = ['GET'])
 def add_job():
 
@@ -158,7 +161,7 @@ def add_job():
 
 
 
-# home page
+# Home page
 @app.route('/home')
 def home():
     if 'user_email' in session: # if user still in session.
@@ -169,6 +172,7 @@ def home():
     else:
         # User is not logged in
         return redirect(url_for('login'))
+
 
 
 @app.route("/api/jobs")
@@ -185,7 +189,7 @@ def show_job(id):
     return render_template('job_page.html', job = job)
 
 
- 
+
 @app.route('/job/<id>/apply', methods = ['POST'])
 def apply_to_job(id): # id is the job id
     data = request.form # get the user information from the job_page, like the name, email...
@@ -203,7 +207,6 @@ MAILJET_API_KEY = os.getenv('MAILJET_API_KEY')
 MAILJET_SECRET_KEY = os.getenv('MAILJET_SECRET_KEY')
 # create an instance of the mailjet client to interact with mailjet api
 mailjet = Client(auth = (MAILJET_API_KEY, MAILJET_SECRET_KEY), version = 'v3.1')
-
 
 
 def send_confirmation_email(user_email, user_name, job_title):
